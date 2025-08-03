@@ -2,6 +2,10 @@ import funciones
 import pandas as pd
 import os
 from sqlalchemy import create_engine
+from dotenv import load_dotenv
+
+# Cargar variables de entorno
+load_dotenv()
 
 # Crear un DataFrame vacío para almacenar todas las facturas
 df = pd.DataFrame()
@@ -38,9 +42,8 @@ for carpeta in sorted(os.listdir("./facturas")):
 
 # Guardar el DataFrame final en una bbdd postgres
 # Crear una conexión a la base de datos PostgreSQL
-engine = create_engine(
-    "postgresql+psycopg2://jhonvilcaranatintaya:JVT954416045@192.168.18.15:5432/postgres"
-)
+database_url = os.getenv("DATABASE_URL")
+engine = create_engine(database_url)
 
 # Guardar el DataFrame en PostgreSQL
 df.to_sql("facturas", engine, if_exists="append", index=False)

@@ -1,12 +1,18 @@
 from flask import Flask, jsonify
 import pandas as pd
 from sqlalchemy import create_engine
+import os
+from dotenv import load_dotenv
+
+# Cargar variables de entorno
+load_dotenv()
 
 app = Flask(__name__)
 
 @app.route("/facturas")
 def obtener_facturas():
-    engine = create_engine("postgresql+psycopg2://jhonvilcaranatintaya:JVT954416045@localhost:5432/postgres")
+    database_url = os.getenv("DATABASE_URL")
+    engine = create_engine(database_url)
     df = pd.read_sql("SELECT * FROM facturas", engine)
     return jsonify(df.to_dict(orient="records"))
 
