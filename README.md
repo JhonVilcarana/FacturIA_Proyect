@@ -254,6 +254,6 @@ Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) par
 
 **⭐ Si este proyecto te fue útil, considera darle una estrella en GitHub ⭐**
 
-*Desarrollado con ❤️ y ☕ por Jhon Vilcarana*
+*Desarrollado con ❤️ y ☕ por Jhon Vilcarana Tintaya*
 
 </div>
