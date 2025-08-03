@@ -93,7 +93,7 @@ pip install -r requirements.txt
 
 ```bash
 python insertar_facturas.py  # Procesa y carga datos en PostgreSQL
-python app.py                # Levanta la API en http://localhost:5050/facturas
+python main.py                # Levanta la API en http://localhost:5050/facturas
 ```
 
 3. En Power BI: conéctate al endpoint JSON para visualizar.
