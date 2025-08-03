@@ -1,134 +1,259 @@
-# 🧾 FacturIA - Automatización Inteligente de Facturas con Python, GPT-4o, PostgreSQL y Power BI
+# 🤖 FacturIA - Sistema Inteligente de Procesamiento de Facturas
 
-**FacturIA** es un sistema automatizado que procesa, estructura y analiza facturas en PDF con distintos formatos utilizando Inteligencia Artificial. El objetivo es eliminar tareas manuales y acelerar el análisis financiero en empresas de cualquier tamaño.
+<div align="center">
+
+![Python](https://img.shields.io/badge/python-v3.13+-blue.svg)
+![OpenAI](https://img.shields.io/badge/OpenAI-GPT--4o--mini-green.svg)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?logo=postgresql&logoColor=white)
+![Flask](https://img.shields.io/badge/Flask-000000?logo=flask&logoColor=white)
+![License](https://img.shields.io/badge/license-MIT-blue.svg)
+
+**Automatiza la lectura y análisis de facturas con IA, Python y Power BI**
+
+*Transformando documentos no estructurados en datos estructurados con inteligencia artificial*
+
+</div>
 
 ---
 
-## 🎯 Problema de Negocio
+## 📋 Descripción
 
-Las empresas reciben facturas con múltiples formatos, lo que dificulta su análisis. Tradicionalmente, extraer manualmente datos como proveedor, importe o fecha es costoso, propenso a errores y poco escalable. **FacturIA** resuelve esto integrando IA, automatización y visualización de datos en un flujo completo.
+**FacturIA** es un sistema inteligente que automatiza completamente el procesamiento de facturas PDF utilizando inteligencia artificial. El sistema extrae, estructura y almacena automáticamente la información de facturas, proporcionando una API REST para consultas y análisis posterior.
+
+### ✨ Características Principales
+
+- 🤖 **IA Avanzada**: Utiliza GPT-4o-mini para extraer información de facturas PDF
+- 📊 **Procesamiento Automático**: Convierte texto no estructurado en datos estructurados
+- 💰 **Conversión de Monedas**: Convierte automáticamente USD a EUR
+- 🗄️ **Base de Datos**: Almacena datos en PostgreSQL para análisis posterior
+- 🌐 **API REST**: Endpoint para consultar facturas procesadas
+- 📈 **Dashboard Power BI**: Visualización avanzada de datos financieros
+- 🔒 **Seguridad**: Gestión segura de credenciales con variables de entorno
 
 ---
 
-## 🚀 Flujo del Proyecto
+## 🏗️ Arquitectura del Sistema
 
 ```
-📂 PDFs de Facturas
-      ↓
-🐍 Python: Extracción del texto
-      ↓
-🤖 GPT-4o (OpenAI): Estructuración de datos clave (fecha, proveedor, importe, etc.)
-      ↓
-📄 CSV → 📊 pandas DataFrame
-      ↓
-🧮 Conversión de moneda (USD → EUR)
-      ↓
-🗄 PostgreSQL: Almacenamiento en base de datos
-      ↓
-🌐 API REST (Flask)
-      ↓
-📈 Power BI: Visualización interactiva
-```
-
----
-
-## 🛠️ Tecnologías y Herramientas Utilizadas
-
-### 🤖 Inteligencia Artificial
-- **OpenAI GPT-4o-mini** – Extracción estructurada de texto desde facturas en PDF.
-- **API de OpenAI** – Integración para análisis automatizado.
-
-### 🐍 Programación y Librerías
-- **Python 3.13**
-- **pandas**, **sqlalchemy**, **flask**, **PyPDF2**, **dotenv**, **psycopg2**
-
-### 🗄 Base de Datos
-- **PostgreSQL** – Servidor remoto conectado desde Python (192.168.18.15)
-
-### 🌐 Desarrollo Web
-- **Flask API** – Endpoint `/facturas` para exponer los datos a Power BI.
-- **JSON** – Intercambio de información entre servicios.
-
-### 📊 Visualización
-- **Power BI** – Dashboard con análisis mensual, top proveedores y distribución por concepto.
-
-### ⚙️ Dev Tools
-- **Git** / **GitHub** – Control de versiones y repositorio
-- **VS Code**, **Terminal**, **pip**, **venv**
-
-### 🔒 Seguridad
-- **Variables de entorno (.env)** – Gestión segura de claves
-- **.gitignore** – Exclusión de archivos sensibles
-
----
-
-## 📁 Estructura del Repositorio
-
-```
-FacturIA/
-├── app.py                 # API Flask (endpoint /facturas)
-├── insertar_facturas.py  # Procesamiento principal de PDFs
-├── funciones.py           # Funciones auxiliares
-├── prompt.py              # Prompt personalizado para GPT-4o
-├── .env                   # Configuración segura (no incluida en el repo)
-├── requirements.txt       # Dependencias
-├── /data                  # Carpeta para facturas o CSVs
-└── /powerbi               # Archivos para construir el dashboard
+┌─────────────────┐    ┌──────────────┐    ┌────────────────┐
+│   Facturas PDF  │───▶│   FacturIA   │───▶│   PostgreSQL   │
+└─────────────────┘    │              │    └────────────────┘
+                       │  + OpenAI    │           │
+┌─────────────────┐    │  + Python    │    ┌────────────────┐
+│   Power BI      │◀───│  + Flask     │───▶│   API REST     │
+└─────────────────┘    └──────────────┘    └────────────────┘
 ```
 
 ---
 
-## ⚙️ Instalación y Ejecución
+## 🚀 Instalación y Configuración
+
+### Prerrequisitos
+
+- Python 3.13+
+- PostgreSQL
+- Cuenta de OpenAI con API Key
+- Git
+
+### 1. Clonar el Repositorio
 
 ```bash
 git clone https://github.com/JhonVilcarana/Facturia_Proyect.git
-cd FacturIA
-python3 -m venv venv
-source venv/bin/activate
+cd Facturia_Proyect
+```
+
+### 2. Configurar Entorno Virtual
+
+```bash
+python -m venv .venv
+source .venv/bin/activate  # En macOS/Linux
+# .venv\Scripts\activate   # En Windows
+```
+
+### 3. Instalar Dependencias
+
+```bash
 pip install -r requirements.txt
 ```
 
-1. Coloca tus facturas PDF en la carpeta `data/`
-2. Ejecuta:
+### 4. Configurar Variables de Entorno
 
 ```bash
-python insertar_facturas.py  # Procesa y carga datos en PostgreSQL
-python main.py                # Levanta la API en http://localhost:5050/facturas
+cp .env.example .env
 ```
 
-3. En Power BI: conéctate al endpoint JSON para visualizar.
+Edita el archivo `.env` con tus credenciales:
+
+```env
+OPENAI_API_KEY=tu_clave_openai_aqui
+DATABASE_URL=postgresql+psycopg2://usuario:contraseña@host:puerto/database
+```
+
+### 5. Configurar Base de Datos
+
+Asegúrate de que PostgreSQL esté ejecutándose y crea la base de datos necesaria.
+
+---
+
+## 💻 Uso
+
+### Procesar Facturas
+
+1. Coloca tus archivos PDF en la carpeta `facturas/YYYY-MM/`
+2. Ejecuta el procesamiento:
+
+```bash
+python main.py
+```
+
+### Iniciar API REST
+
+```bash
+python api_facturas.py
+```
+
+La API estará disponible en: `http://localhost:5050`
+
+### Endpoints Disponibles
+
+- **GET** `/facturas` - Obtiene todas las facturas procesadas
+
+Ejemplo de respuesta:
+```json
+[
+  {
+    "id": 1,
+    "concepto": "software",
+    "fecha_factura": "2024-01-15",
+    "importe": 299.99,
+    "proveedor": "OpenAI LLC"
+  }
+]
+```
 
 ---
 
 ## 📊 Dashboard Power BI
 
-El dashboard incluye:
+El proyecto incluye un dashboard de Power BI (`Dashboard_PowerBI/Power_BI/FacturIA.pbix`) con visualizaciones de:
 
-- Evolución mensual de gastos
-- Gasto total y promedio por factura
-- Ranking de proveedores
-- Distribución por concepto
-
-*(Ver carpeta `/powerbi` para plantilla y recursos visuales)*
-
----
-
-## 🧠 Posibles Mejoras
-
-- Fine-tuning del modelo con facturas propias
-- OCR para facturas escaneadas (modelo de visión)
-- Interfaz visual para usuarios no técnicos
-- Conexión con ERP para combinar ingresos y generar cuenta de resultados
+- 💰 Gastos por mes y año
+- 🏢 Análisis por proveedor
+- 📂 Categorización por concepto
+- 📈 Tendencias temporales
+- 💱 Análisis de conversión de monedas
 
 ---
 
-## 👨‍💻 Autor
+## 📁 Estructura del Proyecto
 
-**Jhon Vilcarana Atintaya**  
-[GitHub](https://github.com/JhonVilcarana) · [LinkedIn](https://www.linkedin.com/) · [Portafolio](https://sites.google.com/)
+```
+FacturIA/
+├── 📄 main.py                    # Script principal de procesamiento
+├── 🔧 funciones.py               # Funciones auxiliares
+├── 🌐 api_facturas.py           # API REST
+├── ⚙️ prompt.py                 # Prompts para OpenAI
+├── 📋 requirements.txt          # Dependencias
+├── 🔒 .env.example             # Plantilla de configuración
+├── 📊 Dashboard_PowerBI/        # Dashboard y recursos
+├── 📂 facturas/                # Carpeta de facturas PDF
+└── 📖 README.md                # Este archivo
+```
+
+---
+
+## 🛠️ Tecnologías Utilizadas
+
+### Backend
+- **Python 3.13** - Lenguaje principal
+- **Flask** - Framework web para API
+- **SQLAlchemy** - ORM para base de datos
+- **pandas** - Análisis de datos
+- **PyPDF2** - Procesamiento de PDF
+
+### Inteligencia Artificial
+- **OpenAI GPT-4o-mini** - Procesamiento de lenguaje natural
+- **Structured Output** - Extracción de datos estructurados
+
+### Base de Datos
+- **PostgreSQL** - Base de datos principal
+- **psycopg2** - Conector PostgreSQL
+
+### Visualización
+- **Power BI** - Dashboard y reportes
+- **JSON API** - Intercambio de datos
+
+---
+
+## 🔧 Funcionalidades Técnicas
+
+### Procesamiento de IA
+- Extracción inteligente de información de facturas
+- Identificación automática de campos (proveedor, fecha, importe, concepto)
+- Manejo de formatos de fecha diversos
+- Detección automática de monedas
+
+### Gestión de Datos
+- Conversión automática USD → EUR (factor 0.9243)
+- Validación de datos estructurados
+- Almacenamiento incremental en PostgreSQL
+- API REST para consultas en tiempo real
+
+### Seguridad
+- Variables de entorno para credenciales
+- Exclusión de archivos sensibles en Git
+- Validación de entrada de datos
+
+---
+
+## 📈 Casos de Uso
+
+- **Empresas**: Automatización de contabilidad
+- **Freelancers**: Gestión de gastos profesionales
+- **Contadores**: Digitalización de documentos
+- **Analistas**: Extracción de insights financieros
+- **Desarrolladores**: Base para sistemas de facturación
+
+---
+
+## 🤝 Contribución
+
+¡Las contribuciones son bienvenidas! Para contribuir:
+
+1. Fork el proyecto
+2. Crea una rama para tu feature (`git checkout -b feature/AmazingFeature`)
+3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
+4. Push a la rama (`git push origin feature/AmazingFeature`)
+5. Abre un Pull Request
 
 ---
 
 ## 📝 Licencia
 
-MIT License - Libre para uso y modificación educativa o profesional.
+Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) para detalles.
+
+---
+
+## 👨‍💻 Autor
+
+**Jhon Vilcarana**
+- GitHub: [@JhonVilcarana](https://github.com/JhonVilcarana)
+- Proyecto: [FacturIA](https://github.com/JhonVilcarana/Facturia_Proyect)
+
+---
+
+## 🙏 Agradecimientos
+
+- OpenAI por la API de GPT-4o-mini
+- Comunidad de Python por las excelentes librerías
+- PostgreSQL por la robustez de la base de datos
+
+---
+
+<div align="center">
+
+**⭐ Si este proyecto te fue útil, considera darle una estrella en GitHub ⭐**
+
+*Desarrollado con ❤️ y ☕ por Jhon Vilcarana*
+
+</div>
