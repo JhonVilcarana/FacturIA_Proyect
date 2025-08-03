@@ -236,7 +236,7 @@ Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) par
 
 ## 👨‍💻 Autor
 
-**Jhon Vilcarana**
+**Jhon Vilcarana Tintaya**
 - GitHub: [@JhonVilcarana](https://github.com/JhonVilcarana)
 - Proyecto: [FacturIA](https://github.com/JhonVilcarana/Facturia_Proyect)
 
