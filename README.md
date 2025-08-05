@@ -1,4 +1,4 @@
-# 🤖 FacturIA - Sistema Inteligente de Procesamiento de Facturas
+# 🤖 FacturIA - Automatiza el análisis de facturas con IA, Python, PostgreSQL y Power BI
 
 <div align="center">
 
