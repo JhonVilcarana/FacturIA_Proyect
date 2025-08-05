@@ -228,25 +228,11 @@ FacturIA/
 
 ---
 
-## 📝 Licencia
-
-Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) para detalles.
-
----
-
 ## 👨‍💻 Autor
 
 **Jhon Vilcarana Tintaya**
 - GitHub: [@JhonVilcarana](https://github.com/JhonVilcarana)
 - Proyecto: [FacturIA](https://github.com/JhonVilcarana/Facturia_Proyect)
-
----
-
-## 🙏 Agradecimientos
-
-- OpenAI por la API de GPT-4o-mini
-- Comunidad de Python por las excelentes librerías
-- PostgreSQL por la robustez de la base de datos
 
 ---
 
