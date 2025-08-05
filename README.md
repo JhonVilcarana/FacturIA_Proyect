@@ -18,7 +18,7 @@
 
 ## 📋 Descripción
 
-**FacturIA** Desarrollé una solución integral para extraer, estructurar y visualizar datos de facturas en PDF usando Python, OpenAI, PostgreSQL, Flask y Power BI. El sistema transforma documentos no estructurados en dashboards interactivos con indicadores clave de gasto, proveedores y conceptos.
+Desarrollé una solución integral para extraer, estructurar y visualizar datos de facturas en PDF usando Python, OpenAI, PostgreSQL, Flask y Power BI. El sistema transforma documentos no estructurados en dashboards interactivos con indicadores clave de gasto, proveedores y conceptos.
 
 ### ✨ Características Principales
 
