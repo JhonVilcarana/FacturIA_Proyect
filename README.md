@@ -1,4 +1,4 @@
-# 🤖 FacturIA - Automatiza el análisis de facturas con IA, Python, PostgreSQL y Power BI
+# 🤖 FacturIA - Automatización inteligente de facturas
 
 <div align="center">
 
@@ -18,7 +18,7 @@
 
 ## 📋 Descripción
 
-**FacturIA** es un sistema inteligente que automatiza completamente el procesamiento de facturas PDF utilizando inteligencia artificial. El sistema extrae, estructura y almacena automáticamente la información de facturas, proporcionando una API REST para consultas y análisis posterior.
+**FacturIA** Desarrollé una solución integral para extraer, estructurar y visualizar datos de facturas en PDF usando Python, OpenAI, PostgreSQL, Flask y Power BI. El sistema transforma documentos no estructurados en dashboards interactivos con indicadores clave de gasto, proveedores y conceptos.
 
 ### ✨ Características Principales
 
