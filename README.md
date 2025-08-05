@@ -24,7 +24,6 @@ Desarrollé una solución integral para extraer, estructurar y visualizar datos 
 
 - 🤖 **IA Avanzada**: Utiliza GPT-4o-mini para extraer información de facturas PDF
 - 📊 **Procesamiento Automático**: Convierte texto no estructurado en datos estructurados
-- 💰 **Conversión de Monedas**: Convierte automáticamente USD a SOL
 - 🗄️ **Base de Datos**: Almacena datos en PostgreSQL para análisis posterior
 - 🌐 **API REST**: Endpoint para consultar facturas procesadas
 - 📈 **Dashboard Power BI**: Visualización avanzada de datos financieros
