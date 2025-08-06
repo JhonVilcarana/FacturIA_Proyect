@@ -3,5 +3,7 @@ pandas
 sqlalchemy
 psycopg2-binary
 python-dotenv
-PyPDF2
+PyMuPDF
 openai
+Pillow
+pytesseract
