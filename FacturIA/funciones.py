@@ -5,6 +5,8 @@ import os
 import pandas as pd
 from io import StringIO
 from prompt import prompt
+from PIL import Image
+import pytesseract
 
 # Cargar variables de entorno desde el archivo .env
 load_dotenv(".env")
@@ -13,11 +15,30 @@ load_dotenv(".env")
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
 
-def extraer_texto_pdf(ruta_pdf):
-
-    doc = fitz.open(ruta_pdf)  # Abrir PDF
-    text = "\n".join([page.get_text("text") for page in doc])  # Extraer texto
-    return text
+def extraer_texto_archivo(ruta_archivo):
+    """Extrae texto de PDFs o imágenes usando PyMuPDF para PDFs y OCR para imágenes"""
+    
+    # Obtener la extensión del archivo
+    extension = os.path.splitext(ruta_archivo)[1].lower()
+    
+    try:
+        if extension == '.pdf':
+            # Procesar PDF
+            doc = fitz.open(ruta_archivo)
+            text = "\n".join([page.get_text("text") for page in doc])
+            doc.close()
+            return text
+        elif extension in ['.jpg', '.jpeg', '.png', '.tiff', '.bmp']:
+            # Procesar imagen con OCR
+            imagen = Image.open(ruta_archivo)
+            text = pytesseract.image_to_string(imagen, lang='spa+eng')  # Español e inglés
+            return text
+        else:
+            print(f"⚠️ Formato de archivo no soportado: {extension}")
+            return ""
+    except Exception as e:
+        print(f"❌ Error al procesar {ruta_archivo}: {str(e)}")
+        return ""
 
 
 def estructurar_texto(texto):

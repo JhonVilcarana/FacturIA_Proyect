@@ -18,27 +18,52 @@ for carpeta in sorted(os.listdir("./facturas")):
 
     # Recorrer todos los archivos dentro de la carpeta
     for archivo in os.listdir(ruta_carpeta):
-        ruta_pdf = os.path.join(ruta_carpeta, archivo)
+        # Saltar archivos ocultos y de sistema
+        if archivo.startswith('.'):
+            continue
+            
+        ruta_archivo = os.path.join(ruta_carpeta, archivo)
+        
+        # Solo procesar archivos (no carpetas)
+        if os.path.isfile(ruta_archivo):
+            print(f"📄 Procesando archivo: {ruta_archivo}")
 
-        print(f"📄 Procesando factura: {ruta_pdf}")
+            # Extraer texto del archivo (PDF o imagen)
+            texto_no_estructurado = funciones.extraer_texto_archivo(ruta_archivo)
+            
+            # Si no se pudo extraer texto, continuar con el siguiente archivo
+            if not texto_no_estructurado.strip():
+                print(f"⚠️ No se pudo extraer texto de: {archivo}")
+                continue
 
-        # Extraer texto de la factura
-        texto_no_estructurado = funciones.extraer_texto_pdf(ruta_pdf)
+            # Estructurar el texto de la factura
+            texto_estructurado = funciones.estructurar_texto(texto_no_estructurado)
+            
+            # Verificar si OpenAI devolvió un error
+            if texto_estructurado.lower().strip() == 'error':
+                print(f"❌ Error al estructurar el texto de: {archivo}")
+                continue
 
-        # Estructurar el texto de la factura
-        texto_estructurado = funciones.estructurar_texto(texto_no_estructurado)
+            # Convertir texto estructurado en dataframe
+            try:
+                df_factura = funciones.csv_a_dataframe(texto_estructurado)
+                
+                # Verificar que el dataframe no esté vacío
+                if not df_factura.empty:
+                    # Anexar el dataframe de la factura al dataframe general
+                    df = pd.concat([df, df_factura], ignore_index=True)
+                    print(f"✅ Procesado exitosamente: {archivo}")
+                else:
+                    print(f"⚠️ DataFrame vacío para: {archivo}")
+            except Exception as e:
+                print(f"❌ Error al convertir a DataFrame: {archivo} - {str(e)}")
+                continue
 
-        # Convertir texto estructurado en dataframe
-        df_factura = funciones.csv_a_dataframe(texto_estructurado)
+# Si la moneda es "dolares" convertir a soles multiplicando por el tipo de cambio USD a PEN
+df.loc[df["moneda"] == "dolares", "importe"] *= 3.75  # Tipo de cambio aproximado USD a PEN
 
-        # Anexar el dataframe de la factura al dataframe general
-        df = pd.concat([df, df_factura], ignore_index=True)
-
-    # Si la moneda es "dolares" convertir a euros multiplicando por 0,9243
-    df.loc[df["moneda"] == "dolares", "importe"] *= 0.9243
-
-    # Eliminar las columnas no esenciales
-    df = df.iloc[:, 0:4]
+# Eliminar las columnas no esenciales
+df = df.iloc[:, 0:4]
 
 # Guardar el DataFrame final en una bbdd postgres
 # Crear una conexión a la base de datos PostgreSQL
