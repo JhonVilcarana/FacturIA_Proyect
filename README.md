@@ -36,7 +36,7 @@
 
 ## 🏗️ Arquitectura del Sistema
 
-![Arquitectura del Sistema](FacturIA/FlujogramaFacturia.png)
+![Arquitectura del Sistema](FacturIA/FlujogramaFacturIA.png)
 
 ---
 
