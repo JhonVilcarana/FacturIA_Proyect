@@ -36,7 +36,7 @@
 
 ## 🏗️ Arquitectura del Sistema
 
-![Arquitectura del Sistema](FacturIA/Flujograma/Blue and White Flat Product Development Flowchart Graph.png)
+![Arquitectura del Sistema](FacturIA/Flujograma/prueba.png)
 
 ---
 
