@@ -60,7 +60,7 @@ for carpeta in sorted(os.listdir("./facturas")):
                 continue
 
 # Si la moneda es "dolares" convertir a soles multiplicando por el tipo de cambio USD a PEN
-df.loc[df["moneda"] == "dolares", "importe"] *= 3.75  # Tipo de cambio aproximado USD a PEN
+df.loc[df["moneda"] == "dolares", "importe"] *= 3.60  # Tipo de cambio aproximado USD a PEN
 
 # Eliminar las columnas no esenciales
 df = df.iloc[:, 0:4]
