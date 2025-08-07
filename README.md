@@ -39,7 +39,23 @@
 ![Arquitectura del Sistema](FacturIA/Flujograma_FacturIA.png)
 
 ---
+## 📊 Dashboard Power BI
 
+Puedes explorar el dashboard interactivo publicado en Power BI:
+
+![Dashboard FacturIA](FacturIA/Dashboard_FacturIA.png)
+
+🔗 [Ver Dashboard en Power BI]([https://app.powerbi.com/view?r=TU_ENLACE_AQUI](https://app.powerbi.com/view?r=eyJrIjoiNGE3NDBlZDktMjY0NS00OWQ0LTk0ZDUtMWNjYzRlNGYxMTZhIiwidCI6ImNmYmQ4OGI0LTk0YmMtNGZiYS05OGJkLTY0ZDA3MjYzOTRhMyIsImMiOjR9))
+
+El dashboard incluye indicadores clave como:
+
+- 💰 Gastos por mes y año
+- 🏢 Análisis por proveedor
+- 📂 Categorización por concepto
+- 📈 Tendencias temporales
+
+
+---
 ## 🚀 Instalación y Configuración
 
 ### Prerrequisitos
@@ -149,17 +165,6 @@ Ejemplo de respuesta:
 
 ---
 
-## 📊 Dashboard Power BI
-
-El proyecto incluye un dashboard de Power BI (`Dashboard_PowerBI/Power_BI/FacturIA.pbix`) con visualizaciones de:
-
-- 💰 Gastos por mes y año
-- 🏢 Análisis por proveedor
-- 📂 Categorización por concepto
-- 📈 Tendencias temporales
-- 💱 Análisis de conversión de monedas
-
----
 
 ## 📁 Estructura del Proyecto
 
