@@ -39,13 +39,14 @@
 ![Arquitectura del Sistema](FacturIA/Flujograma_FacturIA.png)
 
 ---
+
 ## 📊 Dashboard Power BI
 
 Puedes explorar el dashboard interactivo publicado en Power BI:
 
 ![Dashboard FacturIA](FacturIA/Dashboard_FacturIA.png)
 
-🔗 [Ver el dashboard en Power BI](https://app.powerbi.com/view?r=eyJrIjoiNGE3NDBlZDktMjY0NS00OWQ0LTk0ZDUtMWNjYzRlNGYxMTZhIiwidCI6ImNmYmQ4OGI0LTk0YmMtNGZiYS05OGJkLTY0ZDA3MjYzOTRhMyIsImMiOjR9)
+🔗 [Ver dashboard en Power BI](https://app.powerbi.com/view?r=eyJrIjoiNGE3NDBlZDktMjY0NS00OWQ0LTk0ZDUtMWNjYzRlNGYxMTZhIiwidCI6ImNmYmQ4OGI0LTk0YmMtNGZiYS05OGJkLTY0ZDA3MjYzOTRhMyIsImMiOjR9)
 
 El dashboard incluye indicadores clave como:
 
@@ -54,6 +55,8 @@ El dashboard incluye indicadores clave como:
 - 📂 Categorización por concepto
 - 📈 Tendencias temporales
 
+---
+
 ## 🎥 Video Demo del Proyecto
 
 Explora el flujo completo del sistema FacturIA en acción:
@@ -61,6 +64,7 @@ Explora el flujo completo del sistema FacturIA en acción:
 🔗 [Ver demo](https://drive.google.com/file/d/1qzgBb8yddV7snSIU45gH-Hx_aJIxWg4K/view?usp=share_link)
 
 ---
+
 ## 🚀 Instalación y Configuración
 
 ### Prerrequisitos
