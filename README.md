@@ -45,7 +45,7 @@ Puedes explorar el dashboard interactivo publicado en Power BI:
 
 ![Dashboard FacturIA](FacturIA/Dashboard_FacturIA.png)
 
-🔗 [Ver Dashboard en Power BI]([https://app.powerbi.com/view?r=TU_ENLACE_AQUI](https://app.powerbi.com/view?r=eyJrIjoiNGE3NDBlZDktMjY0NS00OWQ0LTk0ZDUtMWNjYzRlNGYxMTZhIiwidCI6ImNmYmQ4OGI0LTk0YmMtNGZiYS05OGJkLTY0ZDA3MjYzOTRhMyIsImMiOjR9))
+🔗 [Haz clic aquí para ver el dashboard en Power BI]([https://app.powerbi.com/view?r=TU_ENLACE_AQUI](https://app.powerbi.com/view?r=eyJrIjoiNGE3NDBlZDktMjY0NS00OWQ0LTk0ZDUtMWNjYzRlNGYxMTZhIiwidCI6ImNmYmQ4OGI0LTk0YmMtNGZiYS05OGJkLTY0ZDA3MjYzOTRhMyIsImMiOjR9))
 
 El dashboard incluye indicadores clave como:
 
