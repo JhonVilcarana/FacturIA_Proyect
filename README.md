@@ -1,4 +1,4 @@
-# 🤖 FacturIA - Sistema Inteligente de Procesamiento de Facturas
+# 🤖 FacturIA -  Automatización Inteligente de Facturas
 
 <div align="center">
 
